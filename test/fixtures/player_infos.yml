@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: one
+  weight: 1.5
+  height: 1.5
+  age: 1
+  shirt_no: 1
+  team: one
+
+two:
+  player: two
+  weight: 1.5
+  height: 1.5
+  age: 1
+  shirt_no: 1
+  team: two

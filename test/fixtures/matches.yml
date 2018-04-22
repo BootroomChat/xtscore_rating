@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2017-12-15
+  time: 2017-12-15 02:11:00
+  home: one
+  away: one
+  venue: one
+
+two:
+  date: 2017-12-15
+  time: 2017-12-15 02:11:00
+  home: two
+  away: two
+  venue: two

@@ -1,0 +1,13 @@
+<% @matches.each do |date, matches_on_date|%>
+  <h4> <%= l(date, format: :long) %></h4>
+  <ul class="list-group">
+    <% matches_on_date.each do |match| %>
+      <a href="<%= match_path(match) %>" class="list-group-item list-group-item-action">
+        <div>
+          <h3 class="mb-1"><%= match.home.name + ' vs ' + match.away.name %> <span class="label label-info"><%= match.league.name %></span> </h3>
+        </div>
+        <small><%= match.venue.display_name %></small>
+      </a>
+    <% end %>
+  </ul>
+<% end %>

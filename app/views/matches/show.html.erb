@@ -1,0 +1,32 @@
+<% @match.teams.each do |team| %>
+  <h3><%= team.name %></h3>
+  <%= link_to('Start rating this team', new_rating_path(match_id: @match.id, team_id: team.id), target: '_blank') %>
+  <%= link_to('Show All Ratings', ratings_path(match_id: @match.id, team_id: team.id), class: 'button', target: '_blank') %>
+  <% headers.each do |name, keys| %>
+    <h4><%= name %></h4>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <% keys.each_with_index do |key, i| %>
+            <th class="<%= 'info' if i == 0 %>"><%= t(key.underscore) %></th>
+          <% end %>
+        </tr>
+        </thead>
+        <tbody>
+        <% @match.match_stats.where(team: team).each do |stat| %>
+          <tr>
+            <% keys.each_with_index do |key, i| %>
+              <% if i == 0 %>
+                <td class="info"><%= stat.send(key.underscore) %></td>
+              <% else %>
+                <td><%= format_num stat.send(key.underscore) %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+<% end %>

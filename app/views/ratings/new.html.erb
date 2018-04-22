@@ -1,0 +1,17 @@
+<h2><%= @rating.team.name %></h2>
+<%= bootstrap_form_for(@rating) do |f| %>
+  <%= hidden_field_tag :match_id, @rating.match_id %>
+  <%= hidden_field_tag :team_id, @rating.team_id %>
+  <%= f.text_field :username %>
+  <%= f.password_field :passcode %>
+  <% @rating.xt_ratings.each do |xt_rating| %>
+    <h3><%= xt_rating.player_position %></h3>
+    <%= f.fields_for :xt_ratings, xt_rating do |ff| %>
+      <% XtRating.position_mapping[xt_rating.xt_position].each do |key, percent| %>
+        <%= ff.number_field key.underscore, hide_label: true, placeholder: t(key.underscore), inline: true, step: :any %>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <%= f.submit "Save" %>
+<% end %>

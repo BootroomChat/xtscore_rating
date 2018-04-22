@@ -1,0 +1,287 @@
+---
+zh-CN:
+  total: 总分
+  user_rating: 主观分
+  user_adjusted_rating: 主观分（x 60%）
+  adjusted_rating: 客观分（x 40%）
+  overall_rating: 客观分
+  offense: 威胁度
+  supporting: 策应/支点能力
+  closing_down: 逼抢压迫
+  breakthrough: 突破
+  forwarding: 辅助推进
+  offball: 无球跑位
+  organizing: 进攻组织
+  crossing: 传中
+  defense_participating: 防守到位率
+  marking: 盯人
+  protecting: 破坏进攻
+  aerial: 制空
+  passing: 出球
+  pouncing: 出击时机
+  defensive_organizing: 防线组织
+  parried_danger_rating: 扑点/扑救单刀
+  ccc_passes_rating: ccc传球
+  shots_accuracy_rating: 射门命中率
+  errors_rating: 致命失误+失位
+  goals_conceded_rating: 丢球数
+  dribble_success_rating: 过人次数
+  aerial_success_rating: 空中对抗成功率
+  collected_rating: 没收球
+  total_saves_rating: 扑救次数
+  dribbled_past_rating: 被过次数
+  goals_rating: 进球
+  defense_three_ratting: 拦截+抢断+解围
+  passes_accuracy_rating: 传球成功率
+  attacking_overall: 进攻评级
+  defensing_overall: 防守评级
+  play_mins: 上场时间
+  result: 结果
+  goals: 进球
+  assists: 助攻
+  goals_conceded: 失球
+  penalty_conceded: 被造点
+#  corners_total: 角球
+#  aerials_won: 争顶成功
+#  dribbles_lost: 盘带失败
+#  shots_total: 射门数
+#  passes_accurate: 传球成功数
+#  tackle_unsuccesful: 抢断失败
+#  defensive_aerials: 防守争顶
+#  aerials_total: 争顶数
+#  offensive_aerials: 进攻争顶
+#  passes_total: 传球数
+#  throw_ins_total: 界外球
+#  offsides_caught: 越位
+#  interceptions: 拦截
+#  ratings: ws 评分
+#  touches: 触球次数
+#  dispossessed: 失位
+#  parried_safe: 扑救（Parried Safe）
+#  claims_high: 摘高球
+#  clearances: 解围
+#  throw_in_accuracy: 界外球成功次数
+#  collected: 没收
+#  parried_danger: 救险
+#  possession: 控球
+#  shots_off_target: 射门（不在范围）
+#  dribbles_attempted: 盘带尝试次数
+#  shots_on_post: 射门中柱
+#  dribbles_won: 盘带成功次数
+#  corners_accurate: 角球成功次数
+#  tackle_success: 抢断成功次数
+#  throw_ins_accurate: 界外球成功次数
+#  dribble_success:
+#  errors_count:
+#  aerial_success:
+#  shots_blocked:
+#  tackles_total:
+#  tackle_successful:
+#  shots_on_target:
+#  dribbled_past:
+#  passes_key:
+#  fouls_commited:
+#  total_saves:
+#  pass_success:
+#  claims_total:
+  date:
+    abbr_day_names:
+    - 周日
+    - 周一
+    - 周二
+    - 周三
+    - 周四
+    - 周五
+    - 周六
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+    formats:
+      default: "%Y-%m-%d"
+      long: "%Y年%b%d日"
+      short: "%b%d日"
+    month_names:
+    -
+    - 一月
+    - 二月
+    - 三月
+    - 四月
+    - 五月
+    - 六月
+    - 七月
+    - 八月
+    - 九月
+    - 十月
+    - 十一月
+    - 十二月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 大约一小时
+        other: 大约 %{count} 小时
+      about_x_months:
+        one: 大约一个月
+        other: 大约 %{count} 个月
+      about_x_years:
+        one: 大约一年
+        other: 大约 %{count} 年
+      almost_x_years:
+        one: 接近一年
+        other: 接近 %{count} 年
+      half_a_minute: 半分钟
+      less_than_x_minutes:
+        one: 不到一分钟
+        other: 不到 %{count} 分钟
+      less_than_x_seconds:
+        one: 不到一秒
+        other: 不到 %{count} 秒
+      over_x_years:
+        one: 一年多
+        other: "%{count} 年多"
+      x_days:
+        one: 一天
+        other: "%{count} 天"
+      x_minutes:
+        one: 一分钟
+        other: "%{count} 分钟"
+      x_months:
+        one: 一个月
+        other: "%{count} 个月"
+      x_seconds:
+        one: 一秒
+        other: "%{count} 秒"
+    prompts:
+      day: 日
+      hour: 时
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: 必须是可被接受的
+      blank: 不能为空字符
+      present: 必须是空白
+      confirmation: 与确认值不匹配
+      empty: 不能留空
+      equal_to: 必须等于 %{count}
+      even: 必须为双数
+      exclusion: 是保留关键字
+      greater_than: 必须大于 %{count}
+      greater_than_or_equal_to: 必须大于或等于 %{count}
+      inclusion: 不包含于列表中
+      invalid: 是无效的
+      less_than: 必须小于 %{count}
+      less_than_or_equal_to: 必须小于或等于 %{count}
+      model_invalid: "验证失败: %{errors}"
+      not_a_number: 不是数字
+      not_an_integer: 必须是整数
+      odd: 必须为单数
+      required: 必须存在
+      taken: 已经被使用
+      too_long:
+        one: 过长（最长为一个字符）
+        other: 过长（最长为 %{count} 个字符）
+      too_short:
+        one: 过短（最短为一个字符）
+        other: 过短（最短为 %{count} 个字符）
+      wrong_length:
+        one: 长度非法（必须为一个字符）
+        other: 长度非法（必须为 %{count} 个字符）
+      other_than: 长度非法（不可为 %{count} 个字符
+    template:
+      body: 如下字段出现错误：
+      header:
+        one: 有 1 个错误发生导致「%{model}」无法被保存。
+        other: 有 %{count} 个错误发生导致「%{model}」无法被保存。
+  helpers:
+    select:
+      prompt: 请选择
+    submit:
+      create: 新增%{model}
+      submit: 储存%{model}
+      update: 更新%{model}
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u %n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: CN¥
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: 十亿
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", 和 "
+      two_words_connector: " 和 "
+      words_connector: ", "
+  time:
+    am: 上午
+    formats:
+      default: "%Y年%b%d日 %A %H:%M:%S %Z"
+      long: "%Y年%b%d日 %H:%M"
+      short: "%b%d日 %H:%M"
+    pm: 下午
