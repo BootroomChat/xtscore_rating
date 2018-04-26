@@ -23,20 +23,21 @@ function drawFormations(data) {
     console.log(data);
     Object.keys(data).forEach(function (teamName) {
         data[teamName].forEach(function (formation) {
-            var svg = d3.select(".formations")
-                .append("svg:svg")
+            var div = d3.select(".formations");
+            var point = div
+                .select("svg#" + teamName + "-" + formation['formation_index'])
                 .attr("width", width)
                 .attr("height", height)
-                .style("background-color", 'GreenYellow');
-            var point = svg.selectAll('.dataCircle')
+                .style("background-color", 'GreenYellow')
+                .selectAll('.dataCircle')
                 .data(formation['locations'])
                 .enter();
             var circle = point.append('circle')
                 .attr('cx', function (d, i) {
-                    return d.x / 10 * (width);
+                    return (10 - d.x) / 10 * (width);
                 })
                 .attr('cy', function (d, i) {
-                    return d.y / 10 * height + player_radius;
+                    return (10 - d.y) / 10 * height - player_radius;
                 })
                 .attr('stroke', 'white')
                 .attr('stroke-width', player_radius / 4)

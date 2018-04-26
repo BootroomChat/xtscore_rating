@@ -5,7 +5,7 @@ class Formation < ApplicationRecord
   has_many :formation_locations
 
   def as_json(options = {})
-    {name: name, start_min: start_min, end_min: end_min,
+    {name: name, start_min: start_min, end_min: end_min, formation_index: formation_index,
      captain: {player_name: captain.name, shirt_no: captain.shirt_no},
      locations: formation_locations.map {|location| {x: location.x, y: location.y,
                                                      player_name: location.player.name,
