@@ -10,12 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408165431) do
+ActiveRecord::Schema.define(version: 20180426000713) do
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "formation_locations", force: :cascade do |t|
+    t.integer "formation_id"
+    t.integer "match_id"
+    t.integer "team_id"
+    t.integer "player_id"
+    t.float "x"
+    t.float "y"
+    t.index ["formation_id"], name: "index_formation_locations_on_formation_id"
+    t.index ["match_id"], name: "index_formation_locations_on_match_id"
+    t.index ["player_id"], name: "index_formation_locations_on_player_id"
+    t.index ["team_id"], name: "index_formation_locations_on_team_id"
+  end
+
+  create_table "formations", force: :cascade do |t|
+    t.integer "match_id"
+    t.integer "team_id"
+    t.integer "captain_id"
+    t.integer "start_min"
+    t.integer "end_min"
+    t.integer "formation_index"
+    t.string "name"
+    t.index ["match_id"], name: "index_formations_on_match_id"
+    t.index ["team_id"], name: "index_formations_on_team_id"
   end
 
   create_table "leagues", force: :cascade do |t|

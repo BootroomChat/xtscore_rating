@@ -22,6 +22,4 @@ class MatchStat < ApplicationRecord
   def player_position
     "#{player}, #{position}(#{xt_position})"
   end
-
-# scp -i "~/hang.pem" -r ~/xtscore_rating/app ubuntu@ec2-52-15-59-225.us-east-2.compute.amazonaws.com:/home/ubuntu/xtscore_rating/app
 end
