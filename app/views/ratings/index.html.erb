@@ -1,3 +1,4 @@
+<%= link_to('show formation image', match_formations_path(match_id: params[:match_id]), class: 'button', target: '_blank') %>
 <% @rating.all_xt_ratings.each do |xt_ratings| %>
   <% if xt_ratings.size > 0 %>
     <h3><%= xt_ratings[0].player_position %>, Score: <%= format_num(xt_ratings.sum(&:total) / xt_ratings.size) %></h3>

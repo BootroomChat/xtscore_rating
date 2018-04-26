@@ -13,5 +13,6 @@
 //= require rails-ujs
 //= require jquery
 //= require turbolinks
+//= require save-svg-as-png/saveSvgAsPng
 //= require d3
 //= require_tree .
