@@ -1,0 +1,65 @@
+<div class="panel-group row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <a class="filter-btn" id="filter-btn" data-toggle="collapse" href="javascript:void(0)"><%= t('.title') %></a>
+      </h3>
+    </div>
+    <div id="filter" class="panel-collapse">
+      <div class="panel-body">
+        <%= bootstrap_form_for(@calculator, remote: true) do |f| %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= f.submit "Save" %>
+            </div>
+          </div>
+          <% @calculator.config.each do |key, value_hash| %>
+            <div class="panel-group">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <a class="filter-btn" id="filter-<%= class_key(key) %>-btn" data-toggle="collapse" href="javascript:void(0)"><%= key %></a>
+                  </h3>
+                </div>
+                <div id="filter-<%= class_key(key) %>" class="panel-collapse">
+                  <div class="panel-body">
+                    <% value_hash.each do |data_key, function_hash| %>
+                      <div class="col-md-4">
+                        <h5><%= t(data_key.underscore) %></h5>
+                        <div class="input-group">
+                          <span class="input-group-addon" filter><%= t('.function') %></span>
+                          <%= select_tag "config[#{key}][#{data_key}][function]",
+                                         options_for_select(options_for_function_select, function_hash['function']), class: 'form-control' %>
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-addon" filter><%= t('.params') %></span>
+                          <%= text_field_tag "config[#{key}][#{data_key}][params]", function_hash['params'], class: 'form-control' %>
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-addon" filter><%= t('.percent') %></span>
+                          <%= text_field_tag "config[#{key}][#{data_key}][percent]", function_hash['percent'], class: 'form-control' %>
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-addon" filter><%= t('.per_mode') %></span>
+                          <%= select_tag "config[#{key}][#{data_key}][per_mode]",
+                                         options_for_select(options_for_per_mode_select, function_hash['per_mode']), class: 'form-control' %>
+                        </div>
+                        <%= hidden_field_tag "config[#{key}][#{data_key}][key]", function_hash['key'] %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="result row">
+
+</div>

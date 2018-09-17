@@ -1,24 +1,5 @@
-# README
+# XTScore Rating
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The rating application for https://github.com/BootroomChat/XTScore. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Although the XTScore gives a rating on each player and the score is pretty accurate, we use this application to rate manually for rank their performance based on things that data can not show. 

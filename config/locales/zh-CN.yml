@@ -41,6 +41,15 @@ zh-CN:
   assists: 助攻
   goals_conceded: 失球
   penalty_conceded: 被造点
+  functions:
+    normdist: NORMDIST(value, 参数1，参数2)
+    multiply: value * 参数1
+    minus_multiply: percent - value * 参数1
+    zero: 本项不计入评分
+  per_mode:
+    match: 每场比赛
+    _minute: "每分钟（/ 90 * 上场时间）"
+    minute: "每分钟（* 90 / 上场时间）"
 #  corners_total: 角球
 #  aerials_won: 争顶成功
 #  dribbles_lost: 盘带失败
@@ -285,3 +294,10 @@ zh-CN:
       long: "%Y年%b%d日 %H:%M"
       short: "%b%d日 %H:%M"
     pm: 下午
+  calculators:
+    new:
+      function: "函数"
+      params: "参数（多个用空格分开）"
+      percent: "比例"
+      per_mode: "每场/每分钟"
+      title: "参数设置（点击展开）"

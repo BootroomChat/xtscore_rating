@@ -1,0 +1,9 @@
+<% @teams.each do |team| %>
+  <ul class="list-group">
+    <a href="<%= matches_path(team_id: team.id) %>" class="list-group-item list-group-item-action">
+      <div>
+        <h3 class="mb-1"><%= team.name %></h3>
+      </div>
+    </a>
+  </ul>
+<% end %>

@@ -24,7 +24,7 @@ class Rating
   end
 
   def user
-    @user ||= passcode == 'hahaha' ? User.find_or_create_by(name: username) : nil
+    @user ||= passcode == Rails.application.secrets.rating_password ? User.find_or_create_by(name: username) : nil
   end
 
   def match_stats

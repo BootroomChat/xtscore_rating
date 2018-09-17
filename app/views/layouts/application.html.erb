@@ -17,7 +17,8 @@
     <%#= link_to "sample app", '#', id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Match List", matches_path %></li>
+        <li><%= link_to "Match List", matches_path(team_id: 1) %></li>
+        <li><%= link_to "Calculator", new_calculator_path %></li>
       </ul>
     </nav>
   </div>

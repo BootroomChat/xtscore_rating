@@ -12,7 +12,11 @@ class MatchStat < ApplicationRecord
   end
 
   def self.stat_keys
-    %w(playMins result goals assists goalsConceded penaltyConceded cornersTotal aerialsWon dribblesLost shotsTotal passesAccurate tackleUnsuccesful defensiveAerials aerialsTotal offensiveAerials passesTotal throwInsTotal offsidesCaught interceptions ratings touches dispossessed parriedSafe claimsHigh clearances throwInAccuracy collected parriedDanger possession shotsOffTarget dribblesAttempted shotsOnPost dribblesWon cornersAccurate tackleSuccess throwInsAccurate dribbleSuccess errorsCount aerialSuccess shotsBlocked tacklesTotal tackleSuccessful shotsOnTarget dribbledPast passesKey foulsCommited totalSaves passSuccess claimsTotal)
+    %w(playMins result goals assists goalsConceded penaltyConceded cornersTotal aerialsWon dribblesLost shotsTotal passesAccurate tackleUnsuccesful defensiveAerials aerialsTotal offensiveAerials passesTotal throwInsTotal offsidesCaught tackleSuccessful interceptions ratings touches dispossessed parriedSafe claimsHigh clearances collected parriedDanger possession shotsOffTarget dribblesAttempted shotsOnPost dribblesWon cornersAccurate throwInsAccurate errorsCount shotsBlocked tacklesTotal shotsOnTarget dribbledPast passesKey foulsCommited totalSaves claimsTotal)
+  end
+
+  def self.ignore_keys
+    %w(tackleSuccess tackleSuccess dribbleSuccess aerialSuccess passSuccess throwInAccuracy)
   end
 
   def self.xt_rating_keys

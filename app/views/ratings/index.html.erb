@@ -2,7 +2,7 @@
 <% @rating.all_xt_ratings.each do |xt_ratings| %>
   <% if xt_ratings.size > 0 %>
     <h3><%= xt_ratings[0].player_position %>, Score: <%= format_num(xt_ratings.sum(&:total) / xt_ratings.size) %></h3>
-    <div class="table-responsive">
+    <div class="table-responsive complex-table">
       <table class="table table-hover">
         <thead>
         <tr>
@@ -26,7 +26,7 @@
         </tbody>
       </table>
     </div>
-    <div class="table-responsive">
+    <div class="table-responsive complex-table">
       <table class="table table-hover">
         <thead>
         <tr>

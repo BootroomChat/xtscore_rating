@@ -1,0 +1,36 @@
+var allData = JSON.parse('<%= @calculator.data.html_safe %>');
+d3.selectAll('.table-responsive').remove();
+$('.filter-btn').click();
+Object.keys(allData).forEach(function (key) {
+    var table = d3.select('.result').append('div').attr('class', 'table-responsive').append('table').attr('class', 'table table-hover')
+    var thead = table.append('thead')
+    var tbody = table.append('tbody');
+    var data = allData[key];
+    var columns = Object.keys(data[0]);
+    thead.append('tr')
+        .selectAll('th')
+        .data(columns).enter()
+        .append('th')
+        .text(function (column) {
+            return column;
+        });
+
+    // create a row for each object in the data
+    var rows = tbody.selectAll('tr')
+        .data(data)
+        .enter()
+        .append('tr');
+
+    // create a cell in each row for each column
+    var cells = rows.selectAll('td')
+        .data(function (row) {
+            return columns.map(function (column) {
+                return {column: column, value: row[column]};
+            });
+        })
+        .enter()
+        .append('td')
+        .text(function (d) {
+            return d.value;
+        });
+})

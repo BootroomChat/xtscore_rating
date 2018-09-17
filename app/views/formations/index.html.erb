@@ -10,32 +10,42 @@
             <%= "#{team_name}, #{formation.name}, From #{formation.start_min} to #{formation.end_min}" %>
             <a class="download" id="download-<%= "#{team_name}-#{formation.formation_index}" %>">Download</a>
           </h4>
-          <svg id="<%= "#{team_name}-#{formation.formation_index}" %>" width="344px" height="458px" viewBox="-10 0 364 458" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+          <svg id="<%= "#{team_name}_#{formation.formation_index}" %>" width="344px" height="458px" viewBox="0 0 344 458" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
             <title>Pitch</title>
             <desc>Created with Sketch.</desc>
             <defs>
-              <rect id="path-1" x="5" y="5" width="448" height="334"></rect>
+              <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="86.0137312%" gradientTransform="translate(0.500000,0.500000),scale(0.745536,1.000000),rotate(90.000000),translate(-0.500000,-0.500000)" id="radialGradient-1">
+                <stop stop-color="#EEEC92" stop-opacity="0.379981884" offset="0%"></stop>
+                <stop stop-color="#CCC6C6" stop-opacity="0.198982565" offset="45.9469834%"></stop>
+                <stop stop-color="#000000" stop-opacity="0.168223505" offset="100%"></stop>
+              </radialGradient>
+              <rect id="path-2" x="5" y="5" width="448" height="334"></rect>
             </defs>
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
               <g id="Desktop-HD" transform="translate(-838.000000, -438.000000)">
                 <g id="Pitch" transform="translate(1010.000000, 667.000000) rotate(90.000000) translate(-1010.000000, -667.000000) translate(781.000000, 495.000000)">
+                  <rect id="Rectangle-2" fill="#83C187" x="0" y="0" width="458" height="344"></rect>
+                  <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                  </mask>
                   <g id="Bg">
-                    <use fill="#93B963" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <use fill="#83C187" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    <use fill="url(#radialGradient-1)" fill-rule="evenodd" style="mix-blend-mode: overlay;" xlink:href="#path-2"></use>
                     <rect stroke="#FFFFFF" stroke-width="2" x="6" y="6" width="446" height="332"></rect>
                   </g>
-                  <circle id="left-top-corner" stroke="#FFFFFF" stroke-width="2" cx="6" cy="6" r="5"></circle>
-                  <circle id="left-bottom-corner" stroke="#FFFFFF" stroke-width="2" cx="6" cy="338" r="5"></circle>
-                  <circle id="right-bottom-corner" stroke="#FFFFFF" stroke-width="2" cx="452" cy="338" r="5"></circle>
-                  <circle id="right-top-corner" stroke="#FFFFFF" stroke-width="2" cx="452" cy="6" r="5"></circle>
-                  <rect id="right-in-box" stroke="#FFFFFF" stroke-width="2" x="424" y="127" width="28" height="90"></rect>
-                  <rect id="right-box" stroke="#FFFFFF" stroke-width="2" x="374" y="75" width="78" height="194"></rect>
-                  <rect id="left-box" stroke="#FFFFFF" stroke-width="2" x="6" y="75" width="78" height="194"></rect>
-                  <rect id="left-in-box" stroke="#FFFFFF" stroke-width="2" x="6" y="127" width="28" height="90"></rect>
-                  <path d="M84,136 C84,136 106,139 106,172 C106,205 84,208 84,208" id="left-top-circle" stroke="#FFFFFF" stroke-width="2"></path>
-                  <path d="M352,136 C352,136 374,139 374,172 C374,205 352,208 352,208" id="right-top-circle" stroke="#FFFFFF" stroke-width="2" transform="translate(363.000000, 172.000000) scale(-1, 1) translate(-363.000000, -172.000000) "></path>
-                  <circle id="Oval-2" stroke="#FFFFFF" stroke-width="2" cx="229" cy="172" r="49"></circle>
-                  <path d="M229,5 L229,339" id="Path-2" stroke="#FFFFFF" stroke-width="2"></path>
+                  <circle id="left-top-corner" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" cx="6" cy="6" r="23"></circle>
+                  <circle id="left-bottom-corner" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" cx="6" cy="338" r="23"></circle>
+                  <circle id="right-bottom-corner" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" cx="452" cy="338" r="23"></circle>
+                  <circle id="right-top-corner" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" cx="452" cy="6" r="23"></circle>
+                  <rect id="right-in-box" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" x="424" y="127" width="28" height="90"></rect>
+                  <rect id="right-box" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" x="374" y="75" width="78" height="194"></rect>
+                  <rect id="left-box" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" x="6" y="75" width="78" height="194"></rect>
+                  <rect id="left-in-box" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" x="6" y="127" width="28" height="90"></rect>
+                  <path d="M84,136 C84,136 106,139 106,172 C106,205 84,208 84,208" id="left-top-circle" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)"></path>
+                  <path d="M352,136 C352,136 374,139 374,172 C374,205 352,208 352,208" id="right-top-circle" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" transform="translate(363.000000, 172.000000) scale(-1, 1) translate(-363.000000, -172.000000) "></path>
+                  <circle id="Oval-2" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)" cx="229" cy="172" r="49"></circle>
+                  <path d="M229,5 L229,339" id="Path-2" stroke="#FFFFFF" stroke-width="2" mask="url(#mask-3)"></path>
                 </g>
               </g>
             </g>

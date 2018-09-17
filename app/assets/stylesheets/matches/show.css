@@ -1,4 +1,4 @@
-.table > thead:first-child > tr:first-child > th:first-child {
+.complex-table > .table > thead:first-child > tr:first-child > th:first-child {
     position: absolute;
     display: inline-block;
     width: 340px;
@@ -9,16 +9,16 @@ th {
     min-width: 100px;
 }
 
-.table > tbody > tr > td:first-child {
+.complex-table > .table > tbody > tr > td:first-child {
     position: absolute;
     display: inline-block;
     width: 340px;
 }
 
-.table > thead:first-child > tr:first-child > th:nth-child(2) {
+.complex-table > .table > thead:first-child > tr:first-child > th:nth-child(2) {
     padding-left: 380px;
 }
 
-.table > tbody > tr > td:nth-child(2) {
+.complex-table > .table > tbody > tr > td:nth-child(2) {
     padding-left: 380px !important;
 }

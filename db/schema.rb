@@ -10,30 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426000713) do
+ActiveRecord::Schema.define(version: 20180812145514) do
 
-  create_table "countries", force: :cascade do |t|
+  create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "formation_locations", force: :cascade do |t|
-    t.integer "formation_id"
-    t.integer "match_id"
-    t.integer "team_id"
-    t.integer "player_id"
-    t.float "x"
-    t.float "y"
+  create_table "formation_locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.bigint "formation_id"
+    t.bigint "match_id"
+    t.bigint "team_id"
+    t.bigint "player_id"
+    t.float "x", limit: 24
+    t.float "y", limit: 24
     t.index ["formation_id"], name: "index_formation_locations_on_formation_id"
     t.index ["match_id"], name: "index_formation_locations_on_match_id"
     t.index ["player_id"], name: "index_formation_locations_on_player_id"
     t.index ["team_id"], name: "index_formation_locations_on_team_id"
   end
 
-  create_table "formations", force: :cascade do |t|
-    t.integer "match_id"
-    t.integer "team_id"
+  create_table "formations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.bigint "match_id"
+    t.bigint "team_id"
     t.integer "captain_id"
     t.integer "start_min"
     t.integer "end_min"
@@ -43,17 +43,17 @@ ActiveRecord::Schema.define(version: 20180426000713) do
     t.index ["team_id"], name: "index_formations_on_team_id"
   end
 
-  create_table "leagues", force: :cascade do |t|
+  create_table "leagues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "match_stats", force: :cascade do |t|
-    t.integer "match_id"
-    t.integer "team_id"
-    t.integer "player_id"
-    t.integer "position_id"
+  create_table "match_stats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.bigint "match_id"
+    t.bigint "team_id"
+    t.bigint "player_id"
+    t.bigint "position_id"
     t.decimal "adjusted_rating", precision: 12, scale: 6
     t.decimal "overall_rating", precision: 12, scale: 6
     t.decimal "parried_danger_rating", precision: 12, scale: 6
@@ -120,74 +120,75 @@ ActiveRecord::Schema.define(version: 20180426000713) do
     t.decimal "claims_total", precision: 12, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "claims_ground", precision: 12, scale: 6
     t.index ["match_id"], name: "index_match_stats_on_match_id"
     t.index ["player_id"], name: "index_match_stats_on_player_id"
     t.index ["position_id"], name: "index_match_stats_on_position_id"
     t.index ["team_id"], name: "index_match_stats_on_team_id"
   end
 
-  create_table "matches", force: :cascade do |t|
+  create_table "matches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.date "date"
     t.time "time"
     t.string "file_path"
     t.integer "home_id"
     t.integer "away_id"
-    t.integer "venue_id"
-    t.integer "league_id"
+    t.bigint "venue_id"
+    t.bigint "league_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["league_id"], name: "index_matches_on_league_id"
     t.index ["venue_id"], name: "index_matches_on_venue_id"
   end
 
-  create_table "player_infos", force: :cascade do |t|
-    t.integer "player_id"
-    t.float "weight"
-    t.float "height"
+  create_table "player_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.bigint "player_id"
+    t.float "weight", limit: 24
+    t.float "height", limit: 24
     t.integer "age"
     t.integer "shirt_no"
-    t.integer "team_id"
+    t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_id"], name: "index_player_infos_on_player_id"
     t.index ["team_id"], name: "index_player_infos_on_team_id"
   end
 
-  create_table "players", force: :cascade do |t|
+  create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "positions", force: :cascade do |t|
+  create_table "positions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "teams", force: :cascade do |t|
+  create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
-    t.integer "country_id"
+    t.bigint "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_teams_on_country_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "venues", force: :cascade do |t|
+  create_table "venues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "xt_ratings", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "match_stat_id"
+  create_table "xt_ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.bigint "user_id"
+    t.bigint "match_stat_id"
     t.decimal "offense", precision: 12, scale: 6
     t.decimal "supporting", precision: 12, scale: 6
     t.decimal "closing_down", precision: 12, scale: 6
@@ -203,12 +204,29 @@ ActiveRecord::Schema.define(version: 20180426000713) do
     t.decimal "passing", precision: 12, scale: 6
     t.decimal "pouncing", precision: 12, scale: 6
     t.decimal "defensive_organizing", precision: 12, scale: 6
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.decimal "attacking_overall", precision: 12, scale: 6
     t.decimal "defensing_overall", precision: 12, scale: 6
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["match_stat_id"], name: "index_xt_ratings_on_match_stat_id"
     t.index ["user_id"], name: "index_xt_ratings_on_user_id"
   end
 
+  add_foreign_key "formation_locations", "formations"
+  add_foreign_key "formation_locations", "matches"
+  add_foreign_key "formation_locations", "players"
+  add_foreign_key "formation_locations", "teams"
+  add_foreign_key "formations", "matches"
+  add_foreign_key "formations", "teams"
+  add_foreign_key "match_stats", "matches"
+  add_foreign_key "match_stats", "players"
+  add_foreign_key "match_stats", "positions"
+  add_foreign_key "match_stats", "teams"
+  add_foreign_key "matches", "leagues"
+  add_foreign_key "matches", "venues"
+  add_foreign_key "player_infos", "players"
+  add_foreign_key "player_infos", "teams"
+  add_foreign_key "teams", "countries"
+  add_foreign_key "xt_ratings", "match_stats"
+  add_foreign_key "xt_ratings", "users"
 end

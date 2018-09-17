@@ -14,7 +14,7 @@
         </tr>
         </thead>
         <tbody>
-        <% @match.match_stats.where(team: team).includes(:player,:position).each do |stat| %>
+        <% @match.match_stats.where(team: team).each do |stat| %>
           <tr>
             <% keys.each_with_index do |key, i| %>
               <% if i == 0 %>

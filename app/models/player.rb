@@ -1,14 +1,14 @@
 class Player < ApplicationRecord
   has_one :player_info
   delegate :shirt_no, to: :player_info
-  def shirt_no_str
-    if player_info.shirt_no < 10
-      "0#{player_info.shirt_no}"
-    else
-      player_info.shirt_no.to_s
-    end
-  end
+
   def to_s
     name
+  end
+
+  def last_name
+    @last_name = name.split(' ')
+    @last_name.shift if @last_name.size > 1
+    @last_name.join(" ")
   end
 end
