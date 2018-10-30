@@ -33,9 +33,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'mysql2',  '< 0.5.0'
+gem 'mysql2', '< 0.5.0'
 gem 'jquery-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

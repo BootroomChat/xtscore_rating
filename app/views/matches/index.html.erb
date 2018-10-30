@@ -1,4 +1,4 @@
-<% @matches.each do |date, matches_on_date|%>
+<% @matches_by_date.each do |date, matches_on_date|%>
   <h4> <%= l(date, format: :long) %></h4>
   <ul class="list-group">
     <% matches_on_date.each do |match| %>
@@ -11,3 +11,5 @@
     <% end %>
   </ul>
 <% end %>
+<%= will_paginate @matches, renderer: BootstrapPagination::Rails %>
+

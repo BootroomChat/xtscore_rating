@@ -5,15 +5,15 @@ namespace :import do
   FIELDS = ['home', 'away']
   desc 'Import database from file'
   task :data => :environment do ||
-    p ActiveRecord::Base.connection.execute("SET GLOBAL FOREIGN_KEY_CHECKS=0;")
+    ActiveRecord::Base.connection.execute("SET GLOBAL FOREIGN_KEY_CHECKS=0;")
     Dir.glob(BASE_PATH + 'matches/**/*/').each do |match_path|
-      ActiveRecord::Base.transaction do ||
-        _, league_full, _, _, match_name = match_path.gsub(BASE_PATH, '').split('/')
-        if match_name && !Match.where(file_path: match_path.gsub(BASE_PATH, '')).exists? && match_path.include?('2018')
+      _, league_full, _, _, match_name = match_path.gsub(BASE_PATH, '').split('/')
+      if match_name && !Match.where(file_path: match_path.gsub(BASE_PATH, '')).exists? && match_path.include?('2018-2019')
+        ActiveRecord::Base.transaction do ||
           p match_path.gsub(BASE_PATH, '')
           match_info = JSON.parse(File.read(match_path + '/match.json'))
           league = League.find_or_create_by(name: league_full.split('-')[1..-1].join(' '))
-          venue = Venue.find_or_create_by(name: match_info['venueName'].underscore.gsub('_', ' '))
+          venue = Venue.find_or_create_by(name: match_info['venueName'].to_s.underscore.gsub('_', ' '))
           teams = FIELDS.map do |key|
             country = Country.find_or_create_by(name: match_info[key]['countryName'])
             Team.find_or_create_by(name: match_info[key]['name'], country: country)
@@ -73,8 +73,7 @@ namespace :import do
           end
         end
       end
-      p ActiveRecord::Base.connection.execute("SET GLOBAL FOREIGN_KEY_CHECKS=1;")
     end
-
+    ActiveRecord::Base.connection.execute("SET GLOBAL FOREIGN_KEY_CHECKS=1;")
   end
 end

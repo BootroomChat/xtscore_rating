@@ -116,8 +116,8 @@ function drawFormations(data) {
                     console.log(teamName + "_" + formation['formation_index']);
                     console.log(document.getElementById(teamName + "_" + formation['formation_index']));
                     saveSvgAsPng(document.getElementById(teamName + "_" + formation['formation_index']), teamName + "-" + formation['formation_index'] + ".png", {
-                        left: -10,
-                        top: -10
+                        left: -0,
+                        top: -0
                     });
                 })
         })
