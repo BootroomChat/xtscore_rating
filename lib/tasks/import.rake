@@ -76,4 +76,33 @@ namespace :import do
     end
     ActiveRecord::Base.connection.execute("SET GLOBAL FOREIGN_KEY_CHECKS=1;")
   end
+
+  task :event => :environment do ||
+    ActiveRecord::Base.connection.execute("SET GLOBAL FOREIGN_KEY_CHECKS=0;")
+    Dir.glob(BASE_PATH + 'matches/**/*/').each do |match_path|
+      ActiveRecord::Base.transaction do ||
+        p match_path.gsub(BASE_PATH, '')
+        match_stats = {}
+        CSV.foreach(match_path + '/event_count.csv', :headers => true) do |row|
+          if EventStat.exists?(match_id: row['match_id'])
+            break
+          end
+          params = {}
+          row.each do |key, value|
+            if key == 'id'
+              params['player_id'] = value.to_i
+            elsif EventStat.id_keys.include?(key)
+              params[key] = value.to_i
+            elsif EventStat.stat_keys.include?(key)
+              params[key] = value.to_d
+            elsif EventStat.info_keys.include?(key)
+              params[key] = value.to_s
+            end
+          end
+          EventStat.create(params)
+        end
+      end
+    end
+    ActiveRecord::Base.connection.execute("SET GLOBAL FOREIGN_KEY_CHECKS=1;")
+  end
 end
